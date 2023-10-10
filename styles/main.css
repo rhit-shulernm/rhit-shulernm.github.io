@@ -4,11 +4,17 @@
     --vertical-space: 2rem;
     --horizontal-space: 3rem;
 
-    --heading-color:#9EF8EE;
+    /* --heading-color:#9EF8EE;
     --body-color:#22BABB;
     --dark-color: #348888;
     --contrast-color:#FA7F08;
-    --dark-contrast-color:#F24405;
+    --dark-contrast-color:#F24405; */
+
+    --heading-color:#FFFF88;
+    --body-color:#FFFFFF;
+    --dark-color: #5800B3;
+    --contrast-color:#FFFF00;
+    --dark-contrast-color:#7D00FF;
 }
 
 body {
@@ -30,16 +36,6 @@ body {
     background-image: repeating-linear-gradient(157.5deg, hsla(268,0%,34%,0.2) 0px, hsla(268,0%,34%,0.2) 0px,transparent 0px, transparent 1px,hsla(268,0%,34%,0.2) 1px, hsla(268,0%,34%,0.2) 6px,transparent 6px, transparent 7px,hsla(268,0%,34%,0.2) 7px, hsla(268,0%,34%,0.2) 12px),repeating-linear-gradient(90deg, hsla(268,0%,34%,0.2) 0px, hsla(268,0%,34%,0.2) 0px,transparent 0px, transparent 1px,hsla(268,0%,34%,0.2) 1px, hsla(268,0%,34%,0.2) 6px,transparent 6px, transparent 7px,hsla(268,0%,34%,0.2) 7px, hsla(268,0%,34%,0.2) 12px),linear-gradient(90deg, rgb(23,23,23),rgb(23,23,23));
 }
 
-@media screen and (min-width: 25em) {
-    body {
-        grid-template-areas:    
-        "head head"
-        "nav  main"
-        "foot foot";
-        grid-template-rows: auto 1fr auto;
-    }
-}
-
 body > * {
     padding-left: var(--horizontal-space);
     padding-right: var(--horizontal-space);
@@ -59,7 +55,7 @@ body > nav ul {
 }
 
 body > nav ul li {
-    /* display: inline; */
+    display: inline-block;
     padding-right: 1rem;
 }
 
@@ -87,7 +83,9 @@ a:hover {
 }
 
 body#about img {
-    height: 15em;
+    height: 16em;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
 }
 
 p {
@@ -111,13 +109,35 @@ body#portfolio ul#portfolioItems {
     padding: 0;
 }
 
-@media screen and (min-width: 25em) {
+body#portfolio ul#portfolioItems li  img {
+    max-width: 100%;
+}
+
+main > h1 {
+    margin-top: 32px;
+}
+
+@media screen and (min-width: 576px) {
+    body {
+        grid-template-areas:    
+        "head main"
+        "nav  main"
+        "foot foot";
+        grid-template-rows: auto 1fr auto;
+    }
+
+    body > nav ul li {
+        display:list-item;
+    }
+}
+
+@media screen and (min-width: 768px) {
     body#portfolio ul#portfolioItems li {
         flex-basis: 45%;
         padding-right: 5%;
     }
-}
 
-body#portfolio ul#portfolioItems li  img {
-    max-width: 100%;
+    body#about img {
+        float: left;
+    }
 }
